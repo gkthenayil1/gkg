@@ -1,0 +1,9 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+st.title('Simple')
+a = st.number_input(' a number')
+b = st.number_input('Enter another number')
+st.write(div(a, b))
+def div(a, b):
+  return a / b
