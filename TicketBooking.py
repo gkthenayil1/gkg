@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+st.title('TicketBooking')
+
 global f
 f = 0
 
@@ -13,7 +15,7 @@ def t_movie():
 	print("2,movie 2 ")
 	print("3,movie 3")
 	print("4,back")
-	movie = int(input("choose your movie: "))
+	movie = st.number_input("choose your movie: ")
 	if movie == 4:
 		
 	# in this it goes to center function and from center it goes to movie function and it comes back here and then go to theater
@@ -29,8 +31,8 @@ def theater():
 	print("1,SCREEN 1")
 	print("2,SCREEN 2")
 	print("3,SCREEN 3")
-	a = int(input("choose your screen: "))
-	ticket = int(input("number of ticket do you want?: "))
+	a = st.number_input("choose your screen: ")
+	ticket = st.number_input("number of ticket do you want?: ")
 	timing(a)
 
 # this timing function used to select timing for movie
@@ -56,19 +58,19 @@ def timing(a):
 	if a == 1:
 		print("choose your time:")
 		print(time1)
-		t = input("select your time:")
+		t = st.number_input("select your time:")
 		x = time1[t]
 		print("successful!, enjoy movie at "+x)
 	elif a == 2:
 		print("choose your time:")
 		print(time2)
-		t = input("select your time:")
+		t = st.number_input("select your time:")
 		x = time2[t]
 		print("successful!, enjoy movie at "+x)
 	elif a == 3:
 		print("choose your time:")
 		print(time3)
-		t = input("select your time:")
+		t = st.number_input("select your time:")
 		x = time3[t]
 		print("successful!, enjoy movie at "+x)
 	return 0
@@ -93,7 +95,7 @@ def center():
 	print("2,Icon")
 	print("3,pvp")
 	print("4,back")
-	a = int(input("choose your option: "))
+	a = st.number_input("choose your option: ")
 	movie(a)
 	return 0
 
@@ -104,7 +106,7 @@ def city():
 	print("1,city 1")
 	print("2,city 2 ")
 	print("3,city 3 ")
-	place = int(input("choose your option: "))
+	place = st.number_input("choose your option: ")
 	if place == 1:
 		center()
 	elif place == 2:
