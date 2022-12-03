@@ -10,11 +10,11 @@ f = 0
 def t_movie():
 	global f
 	f = f+1
-	print("which movie do you want to watch?")
-	print("1,movie 1 ")
-	print("2,movie 2 ")
-	print("3,movie 3")
-	print("4,back")
+	st.write("which movie do you want to watch?")
+	st.write("1,movie 1 ")
+	st.write("2,movie 2 ")
+	st.write("3,movie 3")
+	st.write("4,back")
 	movie = st.number_input("choose your movie: ")
 	if movie == 4:
 		
@@ -27,10 +27,10 @@ def t_movie():
 
 # this theater function used to select screen
 def theater():
-	print("which screen do you want to watch movie: ")
-	print("1,SCREEN 1")
-	print("2,SCREEN 2")
-	print("3,SCREEN 3")
+	st.write("which screen do you want to watch movie: ")
+	st.write("1,SCREEN 1")
+	st.write("2,SCREEN 2")
+	st.write("3,SCREEN 3")
 	a = st.number_input("choose your screen: ")
 	ticket = st.number_input("number of ticket do you want?: ")
 	timing(a)
@@ -56,23 +56,23 @@ def timing(a):
 		"4": "8.00-10.45"
 	}
 	if a == 1:
-		print("choose your time:")
-		print(time1)
+		st.write("choose your time:")
+		st.write(time1)
 		t = st.number_input("select your time:")
 		x = time1[t]
-		print("successful!, enjoy movie at "+x)
+		st.write("successful!, enjoy movie at "+x)
 	elif a == 2:
-		print("choose your time:")
-		print(time2)
+		st.write("choose your time:")
+		st.write(time2)
 		t = st.number_input("select your time:")
 		x = time2[t]
-		print("successful!, enjoy movie at "+x)
+		st.write("successful!, enjoy movie at "+x)
 	elif a == 3:
-		print("choose your time:")
-		print(time3)
+		st.write("choose your time:")
+		st.write(time3)
 		t = st.number_input("select your time:")
 		x = time3[t]
-		print("successful!, enjoy movie at "+x)
+		st.write("successful!, enjoy movie at "+x)
 	return 0
 
 
@@ -86,26 +86,26 @@ def movie(theater):
 	elif theater == 4:
 		city()
 	else:
-		print("wrong choice")
+		st.write("wrong choice")
 
 
 def center():
-	print("which theater do you wish to see movie? ")
-	print("1,Inox")
-	print("2,Icon")
-	print("3,pvp")
-	print("4,back")
+	st.write("which theater do you wish to see movie? ")
+	st.write("1,Inox")
+	st.write("2,Icon")
+	st.write("3,pvp")
+	st.write("4,back")
 	a = st.number_input("choose your option: ")
 	movie(a)
 	return 0
 
 # this function is used to select city
 def city():
-	print("Hi welcome to movie ticket booking: ")
-	print("where you want to watch movie?:")
-	print("1,city 1")
-	print("2,city 2 ")
-	print("3,city 3 ")
+	st.write("Hi welcome to movie ticket booking: ")
+	st.write("where you want to watch movie?:")
+	st.write("1,city 1")
+	st.write("2,city 2 ")
+	st.write("3,city 3 ")
 	place = st.number_input("choose your option: ")
 	if place == 1:
 		center()
@@ -114,7 +114,7 @@ def city():
 	elif place == 3:
 		center()
 	else:
-		print("wrong choice")
+		st.write("wrong choice")
 
 
 city() # it calls the function city
