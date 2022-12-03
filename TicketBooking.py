@@ -95,7 +95,7 @@ def center():
 	st.write("2,Icon")
 	st.write("3,pvp")
 	st.write("4,back")
-	a = st.number_input("choose your option: ")
+	a = st.number_input("choose your center: ")
 	movie(a)
 	return 0
 
