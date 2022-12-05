@@ -1,3 +1,4 @@
+# streamlit run C:\Users\Admin\OneDrive\Documents\TicketBooking.py
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -5,116 +6,54 @@ st.title('TicketBooking')
 
 global f
 f = 0
+screen_list=["screen1","screen2"]
+movie_list=["churuli","kochal"]
+pandas_movie_list=pd.Series(movie_list)
+timing_list=["12.00 : 02:45","03.00 : 05.45","06.00 : 08.45"]
+pandas_timing_list=pd.Series(timing_list)
+pandas_row_list=pd.Series(['A','B','C','D','E','F','G','H'])
+pandas_seat_list=pd.Series(['1','2','3','4','5','6','7','8','9','10'])
 
-#this t_movie function is used to select movie name
-def t_movie():
+#this movie function is used to select movie name
+def movie():
 	global f
 	f = f+1
 	st.write("which movie do you want to watch?")
-	st.write("1,movie 1 ")
-	st.write("2,movie 2 ")
-	st.write("3,movie 3")
-	st.write("4,back")
-	movie = st.number_input("choose your movie: ")
-	if movie == 4:
-		
-	# in this it goes to center function and from center it goes to movie function and it comes back here and then go to theater
-		center()
-		theater()
-		return 0
-	if f == 1:
-		theater()
+	for i in range(len(movie_list)):
+		st.write(i+1," :  "+ movie_list[i])
+	
+	
+	
+	
+	
+	
+movie()
+#movies = int(st.number_input("choose your movie: "))
+movies=st.selectbox("choose your movie: ", pandas_movie_list)
+#movies=int(movies)
+#x = ds[ds == 11].index[0]
+st.write("The movie is in", screen_list[pandas_movie_list[pandas_movie_list==movies].index[0]] )	
 
-# this theater function used to select screen
-def theater():
-	st.write("which screen do you want to watch movie: ")
-	st.write("1,SCREEN 1")
-	st.write("2,SCREEN 2")
-	st.write("3,SCREEN 3")
-	a = st.number_input("choose your screen: ")
-	ticket = st.number_input("number of ticket do you want?: ")
-	timing(a)
+st.write("At what timing do you want to watch")	
 
-# this timing function used to select timing for movie
-def timing(a):
-	time1 = {
-		"1": "10.00-1.00",
-		"2": "1.10-4.10",
-		"3": "4.20-7.20",
-		"4": "7.30-10.30"
-	}
-	time2 = {
-		"1": "10.15-1.15",
-		"2": "1.25-4.25",
-		"3": "4.35-7.35",
-		"4": "7.45-10.45"
-	}
-	time3 = {
-		"1": "10.30-1.30",
-		"2": "1.40-4.40",
-		"3": "4.50-7.50",
-		"4": "8.00-10.45"
-	}
-	if a == 1:
-		st.write("choose your time:")
-		st.write(time1)
-		t = st.number_input("select your time:")
-		x = time1[t]
-		st.write("successful!, enjoy movie at "+x)
-	elif a == 2:
-		st.write("choose your time:")
-		st.write(time2)
-		t = st.number_input("select your time:")
-		x = time2[t]
-		st.write("successful!, enjoy movie at "+x)
-	elif a == 3:
-		st.write("choose your time:")
-		st.write(time3)
-		t = st.number_input("select your time:")
-		x = time3[t]
-		st.write("successful!, enjoy movie at "+x)
-	return 0
+time=st.selectbox("choose your time: ", pandas_timing_list)
+
+st.write("In which row do you want to watch")	
+rows=st.selectbox("choose your row: ", pandas_row_list)
+st.write("How many seats do yo want to book")	
+no_seats=st.selectbox("number of seat: ", [1,2,3])
+seat_list=[]
+st.write("please select your seat")
+for j in pandas_seat_list:
+	
+	#selected_seat=st.number_input(f"seat number-{j}", min_value=1, max_value=20,  step=1)
+	st.columns(1)
+	selected_seat = st.checkbox(j)
+	if selected_seat:
+		seat_list.append(j)
+st.write("YOU have selected following seats in row ", rows)
+for j in seat_list:
+	st.write(j)
 
 
-def movie(theater):
-	if theater == 1:
-		t_movie()
-	elif theater == 2:
-		t_movie()
-	elif theater == 3:
-		t_movie()
-	elif theater == 4:
-		city()
-	else:
-		st.write("wrong choice")
 
-
-def center():
-	st.write("which theater do you wish to see movie? ")
-	st.write("1,Inox")
-	st.write("2,Icon")
-	st.write("3,pvp")
-	st.write("4,back")
-	a = st.number_input("choose your center: ")
-	movie(a)
-	return 0
-
-# this function is used to select city
-def city():
-	st.write("Hi welcome to movie ticket booking: ")
-	st.write("where you want to watch movie?:")
-	st.write("1,city 1")
-	st.write("2,city 2 ")
-	st.write("3,city 3 ")
-	place = st.number_input("choose your option: ")
-	if place == 1:
-		center()
-	elif place == 2:
-		center()
-	elif place == 3:
-		center()
-	else:
-		st.write("wrong choice")
-
-
-city() # it calls the function city
