@@ -13,7 +13,7 @@ def div(a, b):
 st.title('Simple division')
 a = st.number_input('Enter a number')
 b = st.number_input('Enter another number',value=1.00)
-st.write("your answer is "div(a, b))
+st.write("your answer is ",div(a, b))
 
 
 
